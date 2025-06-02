@@ -1,0 +1,11 @@
+phidata
+groq
+openai
+python-dotenv
+duckduckgo-search
+yfinance
+fastapi
+markdown
+flask
+flask_caching
+pytest
