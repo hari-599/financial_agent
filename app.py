@@ -12,6 +12,7 @@ cache = Cache(app, config={'CACHE_TYPE': 'SimpleCache'})
 @app.route('/', methods=['GET', 'POST'])
 def index():
     response_html = ""
+    recommendation =None
     
     if request.method == 'POST':
         user_input = request.form['user_input'].strip()
@@ -34,7 +35,7 @@ def index():
         except Exception as e:
             response_html = f"<p style='color:red;'>An error occurred: {str(e)}</p>"
 
-    return render_template('index.html', response=response_html)
+    return render_template('index.html', response=response_html,recommendation=recommendation)
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True)
