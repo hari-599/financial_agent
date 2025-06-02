@@ -3,7 +3,7 @@ from flask import Flask, render_template, request
 from flask_caching import Cache
 from model import get_agent
 import markdown as md
-
+import os
 app = Flask(__name__)
 
 # Simple in-memory caching
@@ -36,6 +36,6 @@ def index():
             response_html = f"<p style='color:red;'>An error occurred: {str(e)}</p>"
 
     return render_template('index.html', response=response_html,recommendation=recommendation)
-
+port = int(os.environ.get("PORT", 5000))
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000, debug=True)
+    app.run(host='0.0.0.0', port=port, debug=True)
